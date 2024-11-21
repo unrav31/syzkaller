@@ -8,13 +8,11 @@ import (
 	"fmt"
 	"strings"
 	"syscall"
-	"bytes"
 
 	"github.com/google/syzkaller/pkg/flatrpc"
 	"github.com/google/syzkaller/pkg/fuzzer/queue"
 	"github.com/google/syzkaller/prog"
 	"github.com/google/syzkaller/sys/targets"
-	"github.com/google/syzkaller/pkg/log"
 )
 
 // checkContext arranges checking of presence/support of all target syscalls.
