@@ -1,0 +1,12 @@
+resource fd_buffer_size[fd]
+resource fd_dirty_list[fd]
+resource fd_page_threshold[fd]
+
+openat$fd_buffer_size(fd const[AT_FDCWD], file ptr[in, string["/proc/dirty/buffer_size"]], flags flags[open_flags], mode const[0]) fd_buffer_size
+syz_ext_openat$fd_dirty_list(fd const[AT_FDCWD], file ptr[in, string["/proc/dirty/dirty_list"]], flags flags[open_flags], mode const[0]) fd_dirty_list
+openat$fd_page_threshold(fd const[AT_FDCWD], file ptr[in, string["/proc/dirty/page_threshold"]], flags flags[open_flags], mode const[0]) fd_page_threshold
+
+
+write$fd_buffer_size(fd fd_buffer_size, data ptr[in, intptr], len bytesize[data])
+write$fd_page_threshold(fd fd_page_threshold, data ptr[in, intptr], len bytesize[data])
+read$fd_dirty_list(fd fd_dirty_list, data ptr[out, intptr], len bytesize[data])
